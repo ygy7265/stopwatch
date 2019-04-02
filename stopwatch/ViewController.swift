@@ -48,12 +48,12 @@ class ViewController: UIViewController {
         
     }
     @objc func updateTime(){
-        if count == 4 {
+        if count == 60 {
             timeLabel1.text = String("\(count1)  :")
             count1 += 1
             count = 0
         }
-        else if count1 == 4{
+        else if count1 == 60{
             timeLabel2.text = String("\(count2)  :")
             count2 += 1
             count1 = 0
