@@ -14,18 +14,26 @@ class ViewController: UIViewController {
     var count2 = 0
     var myTimer = Timer()
     var speed = true
+    @IBOutlet weak var buttonplay: UIBarButtonItem!
+  
+    @IBOutlet weak var buttonpause: UIBarButtonItem!
+    
+    @IBOutlet weak var buttonstop: UIBarButtonItem!
+    
     @IBOutlet weak var timeLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       timeLabel.text = String("\(count2):\(count1):\(count)")
+       timeLabel.text = String("00:00:00")
     }
 
 
     @IBAction func btnplay(_ sender: Any) {
         if speed == true{
-        myTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        myTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         }
+        buttonplay.isEnabled = false
+        
         print(count)
         speed = false
     }
@@ -33,6 +41,8 @@ class ViewController: UIViewController {
     @IBAction func btnpause(_ sender: Any) {
         myTimer.invalidate()
         speed = true
+        buttonpause.isEnabled = false
+        buttonplay.isEnabled = true
     }
     
     
@@ -42,11 +52,13 @@ class ViewController: UIViewController {
         count = 0
         count1 = 0
         count2 = 0
-        myTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-        
+        timeLabel.text = String(format: "%02d:%02d:%02d",count2,count1,count)
+        buttonplay.isEnabled = true
+        buttonpause.isEnabled = false
+        buttonstop.isEnabled = false
     }
     @objc func updateTime(){
-        if count == 60 {
+        if count == 100 {
             count1 += 1
             count = 0
         }
@@ -54,7 +66,8 @@ class ViewController: UIViewController {
             count2 += 1
             count1 = 0
         }
-        timeLabel.text = String("\(count2):\(count1):\(count)")
+        timeLabel.text = String(format: "%02d:%02d:%02d",count2,count1,count)
+       // timeLabel.text = String("\(count2):\(count1):\(count)")
         count += 1
     }
 }

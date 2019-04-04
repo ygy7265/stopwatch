@@ -51,9 +51,9 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYp-F7-8NN">
-                                <rect key="frame" x="22" y="152" width="337" height="93"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -62,6 +62,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="buttonpause" destination="Xgy-Kv-vh9" id="wmr-r6-hiD"/>
+                        <outlet property="buttonplay" destination="ybX-ze-31F" id="gxS-uK-VtY"/>
+                        <outlet property="buttonstop" destination="pdZ-dU-PNC" id="fj3-GX-WNq"/>
                         <outlet property="timeLabel" destination="RYp-F7-8NN" id="BYw-ID-HDc"/>
                     </connections>
                 </viewController>
